@@ -7,7 +7,9 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3001;
 
-app.use(cors());
+app.use(cors({
+  origin: ['https://finance-tracker-app-ee435.web.app', 'https://finance-tracker-firebase.onrender.com']
+}));
 app.use(express.json());
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
