@@ -1,0 +1,78 @@
+:root {
+  --color-primary-dark: #1a1a1a; /* Deep Black */
+  --color-secondary-dark: #2c2c2c; /* Dark Gray */
+  --color-accent-red: #e74c3c; /* Vibrant Red */
+  --color-accent-blue: #3498db; /* Bright Blue */
+  --color-text-light: #ecf0f1; /* Off-White */
+  --color-text-dark: #34495e; /* Dark Gray for light backgrounds */
+  --color-card-bg: #ffffff; /* White for cards */
+  --color-card-text: #2c3e50; /* Darker text for cards */
+
+  --font-main: 'Segoe UI', sans-serif;
+}
+
+body {
+  font-family: var(--font-main);
+  /* Subtle radial gradient for background depth */
+  background: radial-gradient(circle at 50% 10%, var(--color-secondary-dark), var(--color-primary-dark) 80%);
+  background-attachment: fixed; 
+  color: var(--color-text-light); /* Light text on dark background */
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+
+.custom-card {
+  background-color: var(--color-card-bg);
+  color: var(--color-card-text);
+  border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border */
+  border-radius: 0.75rem; /* Slightly rounded corners */
+  box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.custom-card-height{
+    min-height: 10rem;
+}
+
+.custom-card:hover {
+  transform: translateY(-8px); /* Lift effect on hover */
+  box-shadow: 0 1.25rem 2.5rem rgba(240, 233, 233, 0.3); /* Enhanced shadow on hover */
+}
+
+
+.progress-bar-red {
+  background-color: var(--color-accent-red) !important;
+}
+
+/* Style for chart tooltips */
+.recharts-tooltip-wrapper {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  color: var(--color-text-light) !important;
+  border: 1px solid var(--color-accent-blue); /* Add a subtle border to tooltip */
+}
+
+/* Basic animation for elements entering the view */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate__fadeInUp {
+  animation-name: fadeInUp;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
