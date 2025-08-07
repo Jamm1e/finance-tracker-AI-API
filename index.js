@@ -5,12 +5,16 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 
 dotenv.config();
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.json());
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+
+app.get('/', (req, res) => {
+  res.send('AI insights server is live!');
+});
 
 app.post('/analyze', async (req, res) => {
   const { transactions, goals } = req.body;
@@ -39,5 +43,5 @@ app.post('/analyze', async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Gemini server running on http://localhost:${port}`);
+  console.log(`Gemini server running on port ${port}`);
 });
